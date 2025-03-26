@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -42,12 +43,18 @@ public class PlayerController : MonoBehaviour
             _moveInput = Input.GetAxisRaw("Player1Horizontal");
             if (Input.GetKeyDown(KeyCode.W))
                 Jump();
+
+            if (Input.GetKeyDown(KeyCode.S))
+                Fall();
         }
         else 
         {
             _moveInput = Input.GetAxisRaw("Player2Horizontal");
             if (Input.GetKeyDown(KeyCode.UpArrow))
                 Jump();
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+                Fall();
         }
     }
 
@@ -72,5 +79,10 @@ public class PlayerController : MonoBehaviour
         // An impulse only happens once, so we do not need to care about deltaTime
         _rigidbody.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
 
+    }
+
+    void Fall()
+    {
+        _rigidbody.AddForce(Vector3.down * _jumpPower, ForceMode.Impulse);
     }
 }
