@@ -155,6 +155,8 @@ MonoBehaviour:
   _acceleration: 300
   _maxSpeed: 3
   _jumpPower: 15
+  _jumpParticlesPrefab: {fileID: 4874181440609890555, guid: 29590902e2fc3464c995bf8a8ed63b6e,
+    type: 3}
 --- !u!114 &7831893858347249246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startTagged: 0
   _tagImmunityDuration: 1
+  _tagParticlesPrefab: {fileID: 1818186778485845650, guid: 707a4b401b0d7dc44a02f09666e9d7f6,
+    type: 3}
 --- !u!96 &2966250786968804074
 TrailRenderer:
   serializedVersion: 3

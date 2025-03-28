@@ -13,6 +13,10 @@ public class PlayerCameraFollow : MonoBehaviour
     // Vector3.zero is short for Vector3(0, 0, 0)
     private Vector3 _currentVelocity = Vector3.zero;
 
+    // get _target 
+    public Transform GetTarget { get { return _target; } }
+    // set _target
+    //public Transform SetTarget 
     private TagSystem _player1TagSystem;
     private TagSystem _player2TagSystem;
 

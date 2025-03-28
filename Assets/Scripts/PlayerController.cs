@@ -19,12 +19,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _jumpPower = 10.0f;
 
+    [SerializeField]
+    private GameObject _jumpParticlesPrefab;
+
     private Rigidbody _rigidbody;
     private float _moveInput;
 
     public float GetMaxSpeed { get { return _maxSpeed; } }
     public bool IsPlayerOne { get { return _playerOne; } }
 
+    private void SpawnJumpParticles()
+    {
+        // Guard clause
+        if (!_jumpParticlesPrefab)
+            return;
+        Instantiate(_jumpParticlesPrefab, gameObject.transform.position, gameObject.transform.rotation);
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +88,7 @@ public class PlayerController : MonoBehaviour
     {
         // An impulse only happens once, so we do not need to care about deltaTime
         _rigidbody.AddForce(Vector3.up * _jumpPower, ForceMode.Impulse);
-
+        SpawnJumpParticles();
     }
 
     void Fall()
